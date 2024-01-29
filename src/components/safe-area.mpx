@@ -1,0 +1,29 @@
+<template>
+  <view class="h-screen overflow-y-hidden box-border" wx:class="{{className}}" wx:style="{{style}}">
+    <slot />
+  </view>
+</template>
+
+<script setup lang="ts">
+import mpx, { ref } from '@mpxjs/core'
+
+defineProps({
+  className: String
+})
+
+const systemInfo = mpx.getSystemInfoSync()
+const style = ref({
+  paddingBottom: `${
+    systemInfo.screenHeight - systemInfo.safeArea.height - systemInfo.safeArea.top
+  }px`
+})
+defineExpose({
+  style
+})
+</script>
+
+<script name="json">
+module.exports = {
+  component: true
+}
+</script>

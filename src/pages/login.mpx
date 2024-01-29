@@ -1,0 +1,72 @@
+<template>
+  <safe-area>
+    <view class="text-center text-[48rpx]/[64rpx] mb-6">账号登录</view>
+    <t-input
+      label="username"
+      placeholder="please input username"
+      wx:model="{{username}}"
+      wx:model-event="change"
+    ></t-input>
+    <t-input
+      type="password"
+      label="password"
+      placeholder="please input password"
+      wx:model="{{password}}"
+      wx:model-event="change"
+    ></t-input>
+    <button
+      :loading="logging"
+      :disabled="logging"
+      class="rounded-full bg-gradient-to-r from-orange-300 to-red-500 text-white mx-[32rpx] mt-[64rpx]"
+    >
+      登录
+    </button>
+  </safe-area>
+</template>
+
+<script lang="ts" setup>
+import { ref } from '@mpxjs/core'
+// import { useLoginStore } from '@/stores/login'
+// const store = useLoginStore()
+const username = ref('test1')
+const password = ref('中文ab')
+
+const logging = ref(false)
+function onLogin(a: any, b: any, c: any) {
+  console.log(a, b, c)
+  // if (username.value == '') {
+  //   showErrorMaskToast('请填写用户名')
+  //   return
+  // }
+  // if (password.value == '') {
+  //   showErrorMaskToast('请填写密码')
+  //   return
+  // }
+  // try {
+  //   logging.value = true
+  //   await store.login(username.value, password.value)
+  //   uni.reLaunch({
+  //     url: '/pages/communication-type-select'
+  //   })
+  //   logging.value = false
+  // } catch (err) {
+  //   logging.value = false
+  // }
+}
+defineExpose({
+  username,
+  password,
+  logging,
+  onLogin
+})
+</script>
+
+<script name="json">
+module.exports = {
+  usingComponents: {
+    'safe-area': '@/components/safe-area',
+    't-button': 'tdesign-miniprogram/button/button',
+    't-input': 'tdesign-miniprogram/input/input'
+  }
+}
+</script>

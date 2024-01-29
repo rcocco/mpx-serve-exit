@@ -15,6 +15,7 @@
     "@mpxjs/store": "^2.9.0",
     "@mpxjs/utils": "^2.9.0",
     "pinia": "^2.0.14",
+    "tdesign-miniprogram": "^1.2.7",
     "vue": "^2.7.0",
     "vue-demi": "^0.14.6",
     "vue-i18n": "^8.27.2",
